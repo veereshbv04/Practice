@@ -1,3 +1,4 @@
+// js file
 const inputText = document.querySelector("#input-text");
 const button = document.querySelectorAll(".button");
 
