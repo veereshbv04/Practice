@@ -19,6 +19,6 @@ fetch(url)
             console.log(el);
             outPutDiv.innerHTML +=  `<p>${el.title} ${el.id} <br> <\p>`
         }
-        outPutDiv.innerHTML += `${el.completed}`
+        outPutDiv.innerHTML += `${el.completed}  <hr>`
     })
 })
