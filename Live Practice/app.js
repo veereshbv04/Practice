@@ -1,30 +1,14 @@
+const name = document.querySelector("#name");
+const password = document.querySelector("#password");
+const outputDiv = document.querySelector("div");
 
-const btn = document.querySelector("button");
+password.onkeyup = ()=>{
+    var uname = name.value ;
+    var upassword = password.value
 
-// var el = document.createElement("div");
-// var text = document.createTextNode("GgGg");
-// el.appendChild(text)
-// btn.appendChild(el)
-
-var url ="https://mystery-api.kushanksriraj.repl.co/get";
-
-btn.addEventListener("click", ()=>{
-    var mtext ;
-    fetch(url)
-    .then(response =>{
-        if(response.status === 404){
-            mtext="page not found"
-        }else if(response.status === 401){
-            mtext = "you are not looed in"
-        }
-    })
-
-
-    var el = document.createElement("div");
-    var text = document.createTextNode(mtext);
-    el.appendChild(text)
-    document.body.appendChild(el)
-
-
-})
-
+    if(upassword.includes(uname)){
+        outputDiv.innerText="Password cannot contain name"
+    }else{
+        outputDiv.innerText="Password id is in correct format"
+    }
+}
