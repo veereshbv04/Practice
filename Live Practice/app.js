@@ -8,6 +8,12 @@ btn.addEventListener("click", ()=>{
     fetch(url)
     .then(response => response.json())
     .then(res => res.map(obj =>{
-        outputDiv.innerHTML+=`<p>${obj.title} <br> ${obj.completed}<\p>`
+
+        if(!obj.completed){
+            outputDiv.innerHTML+=`<p class="False">${obj.title} <br> ${obj.completed}<\p>`
+        }else{
+            outputDiv.innerHTML+=`<p>${obj.title} <br> ${obj.completed}<\p>`
+        }
+        
     }))
 })
