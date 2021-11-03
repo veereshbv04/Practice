@@ -4,7 +4,7 @@ const outputDiv = document.querySelector("#output-div");
 
 
 
-userPassword.onkeyup = ()=>{
+userPassword.addEventListener("keyup", ()=>{
     
     console.log("Hello");
     var password = userPassword.value;
@@ -14,6 +14,7 @@ userPassword.onkeyup = ()=>{
         outputDiv.innerText = "Pasword must be 10 characters long"
         userPassword.style.color="red";
         button.style.backgroundColor="red"; 
+        button.disabled="True";
 
         if(password.includes("@")){
             console.log("@ is in password");
@@ -29,7 +30,7 @@ userPassword.onkeyup = ()=>{
     }
 
 
-}
+})
 
 // userPassword.addEventListener("onkeyup", ()=>{
 //     console.log("Hello");
