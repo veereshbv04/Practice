@@ -1,3 +1,6 @@
-.False{
-    color: grey;
+.success{
+    color: green;
+}
+.failure{
+    color: red;
 }

@@ -1,15 +1,28 @@
-const currentPrice = document.querySelector("#current-price");
-const costPrice = document.querySelector("#cost-price");
-const btn = document.querySelector("button");
-const outputDiv = document.querySelector("div");
+const name = document.querySelector("#name");
+const call = document.querySelector("#fetch");
+const showotp = document.querySelector("#showotp");
+const userOtp = document.querySelector("#user-otp");
+const checkOtp = document.querySelector("#check-otp");
+const validateOtp = document.querySelector("#validate");
 
-btn.addEventListener("click", ()=>{
-    var current = Number(currentPrice.value);
-    var cp = Number(costPrice.value);
-    
-    if(current < cp){
-        outputDiv.innerText = `Loss is ${current- cp}`;
+var otp;
+var url = "https://otpgenerator.ishanjirety.repl.co/get-otp?name="
+
+call.addEventListener("click", ()=>{
+    fetch(url + name.value)
+    .then(response => response.json())
+    .then(res =>{
+        otp = res.otp;
+        showotp.innerText = otp;
+        console.log(otp)
+    })
+})
+
+checkOtp.addEventListener("click", ()=>{
+    var uOtp = userOtp.value;
+    if(uOtp === otp){
+        validateOtp.innerHTML = `<p class="success">Success</p>`
     }else{
-        outputDiv.innerText = `Profit is ${current-cp}`;
+        validateOtp.innerHTML = `<p class="failure">Failure</p>`
     }
 })
