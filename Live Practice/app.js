@@ -1,19 +1,19 @@
+const userText = document.querySelector("input");
 const btn = document.querySelector("button");
 const outputDiv = document.querySelector("div");
 
-var url = "https://jsonplaceholder.typicode.com/todos";
-
 btn.addEventListener("click", ()=>{
-
-    fetch(url)
-    .then(response => response.json())
-    .then(res => res.map(obj =>{
-
-        if(!obj.completed){
-            outputDiv.innerHTML+=`<p class="False">${obj.title} <br> ${obj.completed}<\p>`
-        }else{
-            outputDiv.innerHTML+=`<p>${obj.title} <br> ${obj.completed}<\p>`
-        }
+    if(userText.value.length <10){
+        outputDiv.innerText="Password is less than 10 characters"
         
-    }))
+    }else{
+        outputDiv.innerText="Success"
+        
+    }
 })
+
+userText.onkeyup = ()=>{
+    if(userText.value.length >10){
+        btn.disabled=false
+    }
+}
