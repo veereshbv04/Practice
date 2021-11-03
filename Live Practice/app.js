@@ -1,19 +1,22 @@
-const userText = document.querySelector("input");
-const btn = document.querySelector("button");
-const outputDiv = document.querySelector("div");
+const nameDiv = document.querySelector("div");
+const btn = document.querySelectorAll("button");
+const apiOutput = document.querySelector("#apiOutput");
 
-btn.addEventListener("click", ()=>{
-    if(userText.value.length <10){
-        outputDiv.innerText="Password is less than 10 characters"
-        
-    }else{
-        outputDiv.innerText="Success"
-        
-    }
+btn[0].addEventListener("click", ()=>{
+    nameDiv.style.borderWidth = `5px`
 })
 
-userText.onkeyup = ()=>{
-    if(userText.value.length >10){
-        btn.disabled=false
-    }
-}
+
+btn[1].addEventListener("click", ()=>{
+    nameDiv.style.borderWidth = `10px`
+})
+
+var url = "https://quick-access-api.desaihetav.repl.co"
+
+btn[2].addEventListener("click", ()=>{
+    fetch(url)
+    .then(response => response.json())
+    .then(res =>{
+        apiOutput.innerHTML =`<p>${res.success} ${res.message}`
+    })
+})
