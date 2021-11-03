@@ -1,25 +1,15 @@
-const btn = document.querySelectorAll("button");
+const currentPrice = document.querySelector("#current-price");
+const costPrice = document.querySelector("#cost-price");
+const btn = document.querySelector("button");
 const outputDiv = document.querySelector("div");
 
-var url = "https://mock-practice.prakhar10v.repl.co/bollywood?name="
-
-btn[0].addEventListener("click", ()=>{
-
-    var name = btn[0].innerText
-    fetch(url + name )
-    .then(response => response.json())
-    .then( res =>{
-        outputDiv.innerText=res.message
-    })
-})
-
-
-btn[1].addEventListener("click", ()=>{
-
-    var name = btn[1].innerText
-    fetch(url + name )
-    .then(response => response.json())
-    .then( res =>{
-        outputDiv.innerText=res.message
-    })
+btn.addEventListener("click", ()=>{
+    var current = Number(currentPrice.value);
+    var cp = Number(costPrice.value);
+    
+    if(current < cp){
+        outputDiv.innerText = `Loss is ${current- cp}`;
+    }else{
+        outputDiv.innerText = `Profit is ${current-cp}`;
+    }
 })
