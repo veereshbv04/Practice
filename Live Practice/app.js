@@ -1,14 +1,25 @@
-const userInput = document.querySelector("input");
+const btn = document.querySelectorAll("button");
 const outputDiv = document.querySelector("div");
 
-userInput.onkeyup = ()=>{
-    if(userInput.value ==="Tanvi"){
-        outputDiv.innerText="She is the best CEO ever!"
-    }else if(userInput.value === "Tanay"){
-        outputDiv.innerText = "He is our FUNNY mentor!"
-    }else if( userInput.value === "Swapnil"){
-        outputDiv.innerText = "He helps us CONQUER jobs!";
-    }else if(userInput.value === "Akanksha"){
-        outputDiv.innerText = "She is our CHEERFUL Interviewer!"
-    }
-}
+var url = "https://mock-practice.prakhar10v.repl.co/bollywood?name="
+
+btn[0].addEventListener("click", ()=>{
+
+    var name = btn[0].innerText
+    fetch(url + name )
+    .then(response => response.json())
+    .then( res =>{
+        outputDiv.innerText=res.message
+    })
+})
+
+
+btn[1].addEventListener("click", ()=>{
+
+    var name = btn[1].innerText
+    fetch(url + name )
+    .then(response => response.json())
+    .then( res =>{
+        outputDiv.innerText=res.message
+    })
+})
