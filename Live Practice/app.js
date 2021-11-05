@@ -1,28 +1,32 @@
-const name = document.querySelector("#name");
-const call = document.querySelector("#fetch");
-const showotp = document.querySelector("#showotp");
-const userOtp = document.querySelector("#user-otp");
-const checkOtp = document.querySelector("#check-otp");
-const validateOtp = document.querySelector("#validate");
+const btn = document.querySelector("button");
+const userImage = document.querySelector("img");
+const repo = document.querySelector("div");
 
-var otp;
-var url = "https://otpgenerator.ishanjirety.repl.co/get-otp?name="
+var url ="https://api.github.com/users/veereshbv04";
 
-call.addEventListener("click", ()=>{
-    fetch(url + name.value)
-    .then(response => response.json())
-    .then(res =>{
-        otp = res.otp;
-        showotp.innerText = otp;
-        console.log(otp)
+btn.addEventListener("click", ()=>{
+    
+    fetch(url)
+    .then(function parse(response){
+        console.log(response);
+        return response.json();
     })
-})
+    .then(res=>{
+        console.log(res);
+        var aurl = res.avatar_url
+        console.log(aurl);
+        userImage.src=aurl
+        var repourl = res.repos_url;
+        console.log(repourl);
+        fetch(repourl)
+        .then(response => response.json())
+        .then(res => {
+            console.log(res);
+            res.map(obj =>{
+                console.log(obj.name);
+                repo.innerHTML+=`<h4>${obj.name}<h4>`;
+            })
+        })
+    })
 
-checkOtp.addEventListener("click", ()=>{
-    var uOtp = userOtp.value;
-    if(uOtp === otp){
-        validateOtp.innerHTML = `<p class="success">Success</p>`
-    }else{
-        validateOtp.innerHTML = `<p class="failure">Failure</p>`
-    }
 })
