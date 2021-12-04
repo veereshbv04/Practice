@@ -1,0 +1,18 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  input {
+    padding: 1rem;
+    min-height: 1rem;
+    width: 12rem;
+  }
+  
+  li {
+    list-style: none;
+    display: inline;
+    padding: 1rem;
+    font-size: 2rem;
+  }
+  
