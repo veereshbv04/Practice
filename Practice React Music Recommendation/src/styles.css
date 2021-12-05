@@ -1,0 +1,28 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  li {
+    list-style: none;
+    background-color: skyblue;
+    padding: 1rem;
+    width: 16rem;
+    margin: auto;
+    margin-bottom: 1rem;
+    border: solid 0.5rem orangered;
+    border-radius: 1rem;
+  }
+  
+  h1 {
+    height: 4rem;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  h2 {
+    background-color: yellow;
+    height: 4rem;
+    padding-top: 2rem;
+  }
+  
