@@ -59,3 +59,34 @@ apiBtn.addEventListener("click", () => {
 
         })
 })
+
+
+
+
+
+addPost.addEventListener("submit", (event)=>{
+
+    outputDiv[0].innerHTML = ``
+    event.preventDefault();
+    const title = document.getElementById("inputTitle").value;
+    const body = document.getElementById("inputBody").value;
+    
+    fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        headers:{
+            "test":"testing",
+            "accept":"stringified Json Object is Accepted"
+        },
+        body:JSON.stringify({title:title, body:body})
+    })
+    .then((res) => res.json())
+    .then(() => {
+        outputDiv[0].innerHTML = "Submitted Sucessfully"
+    })
+    .catch( err => {
+        outputDiv[0].innerHTML = `${err}`
+    })
+  
+})
+
+
